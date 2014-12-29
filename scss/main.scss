@@ -1,0 +1,320 @@
+
+@import "compass";
+@import "susy";
+@import "breakpoint";
+
+//@import url(http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,700);
+
+
+
+
+/*
+  ============================================
+  #Global
+  ============================================
+*/
+$light-background: #F5F5F3;
+
+
+
+
+
+
+/*
+  ============================================
+  #CSS RESET
+    http://meyerweb.com/eric/tools/css/reset/
+    v2.0 | 20110126
+    License: none (public domain)
+  ============================================
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+
+
+/*
+  ========================================
+  #breakpoints
+  ========================================
+*/
+
+$three: 900px;
+$two:   600px 900px;
+$description: 1100px;
+
+
+
+
+
+/*
+  ========================================
+  #Susy Grid
+    http://susy.oddbird.net/
+  ========================================
+*/
+
+// compass mixin
+@include border-box-sizing;
+
+$susy: (
+  global-box-sizing: border-box,
+  columns: 12,
+  container: 100%,
+  gutter-position: split,
+  debug: (
+  	image: hide,
+    color: rgba(#66f, .25),
+    output: background,
+    toggle: top right,
+  )
+);
+
+
+.container {
+  @include container(90%);
+  @include breakpoint(900px) {
+    @include container(80%);
+  }
+}
+
+  .intro {
+  	@include span(12);
+  }
+
+  .comparison .text {
+    @include span(12 of 12);
+    @include breakpoint($description) {
+      @include span(4 of 12);
+    }
+  }
+
+  .comparison .image {
+    @include span(12 of 12);
+    @include breakpoint($description) {
+      @include span(8 of 12);
+    }
+  }
+
+
+  footer {
+    @include full; //clearfix
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    //background-color: $light-background;
+    padding: 10px 0;
+  }
+
+
+
+
+
+/*
+  ========================================
+  #Generic
+  ========================================
+*/
+
+body {
+  background: $light-background;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.big-title {
+  color: #666;
+}
+
+.small-title {
+  color: #333;
+}
+
+.intro {
+  @include breakpoint($three) {
+      -moz-column-count: 3;
+      -moz-column-gap: 20px;
+      -webkit-column-count: 3;
+      -webkit-column-gap: 20px;
+  }
+  @include breakpoint($two) {
+      -moz-column-count: 2;
+      -moz-column-gap: 25px;
+      -webkit-column-count: 2;
+      -webkit-column-gap: 25px;
+  }
+}
+
+
+
+
+
+/*
+  ========================================
+  #Typography & vertical_rhythm
+
+    http://modularscale.com
+    ----------------------
+      13px @ 1:1.5
+      13px @ 1:1.5
+    ----------------------
+
+    http://compass-style.org/reference/compass/typography/vertical_rhythm/
+  ========================================
+*/
+
+$base-font-size: 16px;  /* Scale origin */
+$base-line-height: 24px;
+//$rhythm-unit: 'rem';
+@include establish-baseline;
+
+
+
+body {
+  //font-family: 'Merriweather', serif;
+  //font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  @include adjust-font-size-to(36px);
+  margin: rhythm(2, 36px) 0;
+}
+
+h3 {
+  @include adjust-font-size-to(24px);
+}
+
+p {
+  @include adjust-font-size-to(16px);
+}
+
+#map {
+  @include leader(1);
+}
+
+.comparison {
+  @include breakpoint($description) {
+    .text {
+      @include leader(2);
+    }
+  }
+  .image {
+  	@include leader(2);
+  }
+}
+
+.comparison.castle {
+  @include breakpoint($description) {
+    .text {
+      @include leader(4);
+    }
+  }
+  .image {
+  	@include leader(4);
+  }
+}
+
+.main {
+  @include trailer();
+}
+
+
+
+
+
+/*
+  ========================================
+  #Content
+  ========================================
+*/
+
+.three-col {
+  -moz-column-count: 3;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 20px;
+}
+
+
+
+
+
+/*
+  ========================================
+  #Map and Swiper
+  ========================================
+*/
+
+#map { 
+	//position:absolute; 
+	//top:0; 
+	//bottom:0; 
+	width:100%;
+	height: 600px;
+	//margin-top: 10px;
+}
+
+.range {
+  //position:absolute;
+  //top: 10px;
+  z-index: 9;
+  width:100%;
+}
+
+.leaflet-top .leaflet-control-zoom,
+.leaflet-top .leaflet-control-layers {
+  top:20px;
+  }
+

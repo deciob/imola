@@ -1,0 +1,246 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,700);
+/*
+  ============================================
+  #Global
+  ============================================
+*/
+/*
+  ============================================
+  #CSS RESET
+    http://meyerweb.com/eric/tools/css/reset/
+    v2.0 | 20110126
+    License: none (public domain)
+  ============================================
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*
+  ========================================
+  #breakpoints
+  ========================================
+*/
+/*
+  ========================================
+  #Susy Grid
+    http://susy.oddbird.net/
+  ========================================
+*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.container {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto; }
+  .container:after {
+    content: " ";
+    display: block;
+    clear: both; }
+  @media (min-width: 900px) {
+    .container {
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto; }
+      .container:after {
+        content: " ";
+        display: block;
+        clear: both; } }
+
+.intro {
+  width: 98.33333%;
+  float: left;
+  margin-left: 0.83333%;
+  margin-right: 0.83333%; }
+
+.comparison .text {
+  width: 98.33333%;
+  float: left;
+  margin-left: 0.83333%;
+  margin-right: 0.83333%; }
+  @media (min-width: 1100px) {
+    .comparison .text {
+      width: 31.66667%;
+      float: left;
+      margin-left: 0.83333%;
+      margin-right: 0.83333%; } }
+
+.comparison .image {
+  width: 98.33333%;
+  float: left;
+  margin-left: 0.83333%;
+  margin-right: 0.83333%; }
+  @media (min-width: 1100px) {
+    .comparison .image {
+      width: 65%;
+      float: left;
+      margin-left: 0.83333%;
+      margin-right: 0.83333%; } }
+
+footer {
+  clear: both;
+  width: 98.33333%;
+  float: left;
+  margin-left: 0.83333%;
+  margin-right: 0.83333%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px 0; }
+
+/*
+  ========================================
+  #Generic
+  ========================================
+*/
+body {
+  background: #F5F5F3; }
+
+.upper {
+  text-transform: uppercase; }
+
+.center-text {
+  text-align: center; }
+
+.big-title {
+  color: #666; }
+
+.small-title {
+  color: #333; }
+
+@media (min-width: 900px) {
+  .intro {
+    -moz-column-count: 3;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 20px; } }
+@media (min-width: 600px) and (max-width: 900px) {
+  .intro {
+    -moz-column-count: 2;
+    -moz-column-gap: 25px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 25px; } }
+
+/*
+  ========================================
+  #Typography & vertical_rhythm
+
+    http://modularscale.com
+    ----------------------
+      13px @ 1:1.5
+      13px @ 1:1.5
+    ----------------------
+
+    http://compass-style.org/reference/compass/typography/vertical_rhythm/
+  ========================================
+*/
+/* Scale origin */
+html {
+  font-size: 100%;
+  line-height: 1.5em; }
+
+body {
+  font-family: 'Open Sans', sans-serif; }
+
+h1 {
+  font-size: 2.25em;
+  line-height: 1.33333em;
+  margin: 1.33333em 0; }
+
+h3 {
+  font-size: 1.5em;
+  line-height: 2em; }
+
+p {
+  font-size: 1em;
+  line-height: 1.5em; }
+
+#map {
+  margin-top: 1.5em; }
+
+@media (min-width: 1100px) {
+  .comparison .text {
+    margin-top: 3em; } }
+.comparison .image {
+  margin-top: 3em; }
+
+@media (min-width: 1100px) {
+  .comparison.castle .text {
+    margin-top: 6em; } }
+.comparison.castle .image {
+  margin-top: 6em; }
+
+.main {
+  margin-bottom: 1.5em; }
+
+/*
+  ========================================
+  #Content
+  ========================================
+*/
+.three-col {
+  -moz-column-count: 3;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 20px; }
+
+/*
+  ========================================
+  #Map and Swiper
+  ========================================
+*/
+#map {
+  width: 100%;
+  height: 600px; }
+
+.range {
+  z-index: 9;
+  width: 100%; }
+
+.leaflet-top .leaflet-control-zoom,
+.leaflet-top .leaflet-control-layers {
+  top: 20px; }
+
+/*# sourceMappingURL=main.css.map */

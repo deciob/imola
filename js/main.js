@@ -18,11 +18,28 @@ var layerLeo,
     leoSouthWest,
     leoNorthEast,
     leoBounds,
-    range;
+    range,
+    CartoDB_PositronNoLabels,
+    Acetate_roads;
 
 leoSouthWest = L.latLng(44.348, 11.724),
 leoNorthEast = L.latLng(44.363, 11.7),
 leoBounds = L.latLngBounds(leoSouthWest, leoNorthEast);
+
+CartoDB_PositronNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+  subdomains: 'abcd',
+  minZoom: 0,
+  maxZoom: 18
+});
+
+Acetate_roads = L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/acetate-roads/{z}/{x}/{y}.png', {
+  attribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
+  subdomains: '0123',
+  minZoom: 2,
+  maxZoom: 18
+});
+
 
 layerLeo = L.mapbox.tileLayer('deciob.098d5e15');
 layerEsri = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}');
@@ -35,17 +52,19 @@ northEast = L.latLng(44.369, 11.752),
 bounds = L.latLngBounds(southWest, northEast);
 
 map = L.mapbox.map('map', null, 
-  {maxBounds: bounds, maxZoom: 17, minZoom: 14}).setView([444.353, 11.713], 15);
+  {maxBounds: bounds, maxZoom: 17, minZoom: 14}).setView([44.3545, 11.713], 15);
 
 baseMaps = {
   "Aerial": layerEsri,
+  "CartoDB": CartoDB_PositronNoLabels,
   "OSM": layerLeo
 };
 overlayMaps = {
-  "Leo": layerLeonardo
+  "Leo": layerLeonardo,
+  "Acetate": Acetate_roads,
 };
 
-baseMaps.OSM.addTo(map);
+baseMaps.CartoDB.addTo(map);
 overlayMaps.Leo.addTo(map);
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
