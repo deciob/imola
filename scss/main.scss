@@ -142,12 +142,22 @@ h1 {
   color: #696969;
 }
 
+a {
+  color: rgb(92, 92, 92);
+}
+
+
 .italic {
   font-style: italic;
 }
 
 .upper {
   text-transform: uppercase;
+}
+
+.first {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .center-text {
@@ -162,7 +172,7 @@ h1 {
   color: #333;
 }
 
-.intro {
+.column {
   @include breakpoint($three) {
       -moz-column-count: 3;
       -moz-column-gap: 20px;
@@ -209,7 +219,7 @@ body {
 }
 
 h1 {
-  @include adjust-font-size-to(36px);
+  @include adjust-font-size-to(54px);
   margin: rhythm(2, 36px) 0;
 }
 
@@ -219,18 +229,24 @@ h3 {
 
 p {
   @include adjust-font-size-to(16px);
+  text-indent: 1em;
 }
 
 #map {
   @include leader(1);
 }
 
-.comparison {
+.column {
   @include leader(2);
 }
 
-.main {
+.column.main {
+  @include trailer(2);
+}
+
+footer {
   @include trailer();
+  @include adjust-font-size-to(10.667px); 
 }
 
 

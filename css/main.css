@@ -101,11 +101,18 @@ ul {
 h1 {
   color: #696969; }
 
+a {
+  color: #5c5c5c; }
+
 .italic {
   font-style: italic; }
 
 .upper {
   text-transform: uppercase; }
+
+.first {
+  font-size: 24px;
+  font-weight: bold; }
 
 .center-text {
   text-align: center; }
@@ -117,13 +124,13 @@ h1 {
   color: #333; }
 
 @media (min-width: 900px) {
-  .intro {
+  .column {
     -moz-column-count: 3;
     -moz-column-gap: 20px;
     -webkit-column-count: 3;
     -webkit-column-gap: 20px; } }
 @media (min-width: 600px) and (max-width: 900px) {
-  .intro {
+  .column {
     -moz-column-count: 2;
     -moz-column-gap: 25px;
     -webkit-column-count: 2;
@@ -151,7 +158,7 @@ body {
   font-family: 'Open Sans', sans-serif; }
 
 h1 {
-  font-size: 2.25em;
+  font-size: 3.375em;
   line-height: 1.33333em;
   margin: 1.33333em 0; }
 
@@ -161,16 +168,22 @@ h3 {
 
 p {
   font-size: 1em;
-  line-height: 1.5em; }
+  line-height: 1.5em;
+  text-indent: 1em; }
 
 #map {
   margin-top: 1.5em; }
 
-.comparison {
+.column {
   margin-top: 3em; }
 
-.main {
-  margin-bottom: 1.5em; }
+.column.main {
+  margin-bottom: 3em; }
+
+footer {
+  margin-bottom: 1.5em;
+  font-size: 0.66669em;
+  line-height: 2.24993em; }
 
 /*
   ========================================

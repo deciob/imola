@@ -29,20 +29,22 @@ leoBounds = L.latLngBounds(leoSouthWest, leoNorthEast);
 CartoDB_PositronNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
   subdomains: 'abcd',
-  minZoom: 0,
+  minZoom: 14,
   maxZoom: 18
 });
 
 Acetate_roads = L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/acetate-roads/{z}/{x}/{y}.png', {
   attribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
   subdomains: '0123',
-  minZoom: 2,
+  minZoom: 14,
   maxZoom: 18
 });
 
 
 layerLeo = L.mapbox.tileLayer('deciob.098d5e15');
-layerEsri = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}');
+layerEsri = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+});
 layerLeonardo = L.tileLayer('data/georeferenced/tiles/{z}/{x}/{y}.png', 
   {tms: true, bounds: leoBounds});
 
@@ -55,17 +57,17 @@ map = L.mapbox.map('map', null,
   {maxBounds: bounds, maxZoom: 17, minZoom: 14}).setView([44.3534, 11.713], 15);
 
 baseMaps = {
-  "Aerial": layerEsri,
-  "CartoDB": CartoDB_PositronNoLabels,
-  "OSM": layerLeo
+  "Aerial ESRI": layerEsri,
+  "CartoDB Positron": CartoDB_PositronNoLabels,
+  "OSM Leonardo inspired": layerLeo
 };
 overlayMaps = {
-  "Leo": layerLeonardo,
-  "Acetate": Acetate_roads,
+  "Map of Leonardo da Vinci": layerLeonardo,
+  "Acetate Roads": Acetate_roads,
 };
 
-baseMaps.CartoDB.addTo(map);
-overlayMaps.Leo.addTo(map);
+baseMaps['CartoDB Positron'].addTo(map);
+overlayMaps['Map of Leonardo da Vinci'].addTo(map);
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 range = document.getElementById('range');
