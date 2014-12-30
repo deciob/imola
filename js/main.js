@@ -22,7 +22,7 @@ var layerLeo,
     CartoDB_PositronNoLabels,
     Acetate_roads;
 
-leoSouthWest = L.latLng(44.348, 11.724),
+leoSouthWest = L.latLng(44.342, 11.724),
 leoNorthEast = L.latLng(44.363, 11.7),
 leoBounds = L.latLngBounds(leoSouthWest, leoNorthEast);
 
@@ -52,7 +52,7 @@ northEast = L.latLng(44.369, 11.752),
 bounds = L.latLngBounds(southWest, northEast);
 
 map = L.mapbox.map('map', null, 
-  {maxBounds: bounds, maxZoom: 17, minZoom: 14}).setView([44.3545, 11.713], 15);
+  {maxBounds: bounds, maxZoom: 17, minZoom: 14}).setView([44.3534, 11.713], 15);
 
 baseMaps = {
   "Aerial": layerEsri,

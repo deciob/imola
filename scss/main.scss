@@ -94,62 +94,28 @@ $description: 1100px;
 
 /*
   ========================================
-  #Susy Grid
-    http://susy.oddbird.net/
+  # Layout
   ========================================
 */
 
 // compass mixin
 @include border-box-sizing;
 
-$susy: (
-  global-box-sizing: border-box,
-  columns: 12,
-  container: 100%,
-  gutter-position: split,
-  debug: (
-  	image: hide,
-    color: rgba(#66f, .25),
-    output: background,
-    toggle: top right,
-  )
-);
-
-
 .container {
-  @include container(90%);
+  max-width: 90%;
   @include breakpoint(900px) {
-    @include container(80%);
+    max-width: 75%;
   }
+  margin: 0 auto;
 }
 
-  .intro {
-  	@include span(12);
+.details {
+  max-width: 70%;
+  @include breakpoint(900px) {
+    max-width: 55%;
   }
-
-  .comparison .text {
-    @include span(12 of 12);
-    @include breakpoint($description) {
-      @include span(4 of 12);
-    }
-  }
-
-  .comparison .image {
-    @include span(12 of 12);
-    @include breakpoint($description) {
-      @include span(8 of 12);
-    }
-  }
-
-
-  footer {
-    @include full; //clearfix
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    //background-color: $light-background;
-    padding: 10px 0;
-  }
+  margin: 0 auto;
+}
 
 
 
@@ -163,6 +129,21 @@ $susy: (
 
 body {
   background: $light-background;
+  color: #222222;
+}
+
+ul {
+ list-style-type: square;
+ list-style-position: outside;
+ list-style-image: none;
+}
+
+h1 {
+  color: #696969;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .upper {
@@ -245,25 +226,7 @@ p {
 }
 
 .comparison {
-  @include breakpoint($description) {
-    .text {
-      @include leader(2);
-    }
-  }
-  .image {
-  	@include leader(2);
-  }
-}
-
-.comparison.castle {
-  @include breakpoint($description) {
-    .text {
-      @include leader(4);
-    }
-  }
-  .image {
-  	@include leader(4);
-  }
+  @include leader(2);
 }
 
 .main {
@@ -297,24 +260,12 @@ p {
   ========================================
 */
 
-#map { 
-	//position:absolute; 
-	//top:0; 
-	//bottom:0; 
+#map {  
 	width:100%;
 	height: 600px;
-	//margin-top: 10px;
 }
 
 .range {
-  //position:absolute;
-  //top: 10px;
   z-index: 9;
   width:100%;
 }
-
-.leaflet-top .leaflet-control-zoom,
-.leaflet-top .leaflet-control-layers {
-  top:20px;
-  }
-
